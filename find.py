@@ -11,5 +11,5 @@ for i in range(0,3):
         print "Right"
         print " 1 yuan"
         break
-print "\nThe number is",x
+print "\nThe number is %s"%x
 
