@@ -1,0 +1,132 @@
+class Node:
+    def __init__(self,value):
+        self._value = value
+        self._next = None
+
+class MyLinkedList(object):
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self._head = Node(-1)
+#        self._head = None
+#        self._size = 0
+        
+    def getLength(self):
+        head = self._head
+        size = 0
+        while head is not None:
+            size +=1
+            head = head._next
+        return size
+        
+    def get(self, index):
+        """
+        Get the value of the index-th node in the linked list. If the index is invalid, return -1.
+        :type index: int
+        :rtype: int
+        """
+        count = 0
+        head = self._head
+        l = self.getLength()
+        if (index < 0) or (index > l-1): return -1
+        while count <= index:
+            if count == index:
+                return head._value
+            count += 1
+            head = head._next
+        
+        return -1
+        
+      
+        
+
+    def addAtHead(self, val):
+        """
+        Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.
+        :type val: int
+        :rtype: None
+        """
+        head = self._head
+        new_node = Node(val)
+        if head._value == -1:
+            self._head = new_node
+            return
+        new_node._next = head
+        self.head = new_node
+        
+        
+        
+
+    def addAtTail(self, val):
+        """
+        Append a node of value val to the last element of the linked list.
+        :type val: int
+        :rtype: None
+        """
+        head = self._head
+        new_node = Node(val)
+        if head._value == -1:
+            self._head == new_node
+            return
+        new_node._next = head
+        self._head = new_node
+        
+        
+
+    def addAtIndex(self, index, val):
+        """
+        Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted.
+        :type index: int
+        :type val: int
+        :rtype: None
+        """
+        head = self._head
+        l = self.getLength()
+        
+        if self._head._value == -1:
+            if index > 0 or index < 0 :return
+            new_node = Node(val)
+            self.head = new_node
+            return
+        count = 0
+        while head is not Node and count <= index:
+            if count == index:
+                new_node = Node(val)
+                if index == 0:
+                    new_node._next = head
+                    self.head = new_node
+                else:
+                    new_node._next = head
+                    before._next = new_node
+                return
+            before = head
+            head = head._next
+            count += 1
+        
+        if head is None and t == index:
+            new_node = Node(val)
+            before._next = new_node
+                
+        
+        
+
+    def deleteAtIndex(self, index):
+        """
+        Delete the index-th node in the linked list, if the index is valid.
+        :type index: int
+        :rtype: None
+        """
+        head = self._head
+        count = 0
+        while head is not None and count <= index:
+            if count == index:
+                head = head._next
+                self._head = head
+            else:
+                before._next = head._next
+            return
+        before = head
+        head = head._next
+        count += 1
