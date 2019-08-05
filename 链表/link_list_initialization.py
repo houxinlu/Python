@@ -14,7 +14,6 @@
     任意位置插入：addAtIndex()
     根据：node位置删除node:delAtIndex()
     跟进node值删除node:delAtItem()
-
 """
 
 
@@ -147,10 +146,9 @@ class MyLinkedList(object):
                     self.head = head.next
                 else:
                     pre.next = head.next
-                break
             else:
                 pre = head
-                head = head.next
+            head = head.next
 
 
 if __name__ == "__main__":
@@ -173,6 +171,6 @@ if __name__ == "__main__":
     ll.delAtIndex(2)
     print"删除链表的第二位后，链表的长度: ", (ll.listSize())
     print"遍历链表: ", (ll.ergodic())
-    ll.delAtItem(8)
+    ll.delAtItem(9)
     print"删除node(8)后，链表的长度: ", (ll.listSize())
     print"遍历链表: ", (ll.ergodic())
