@@ -9,7 +9,7 @@ def average(*args):
     else:
         return 0.0
 
-print average(1)
+print(average(1))
 
-print average(1,3,5)
-print average(100,120,158)
+print(average(1,3,5))
+print(average(100,120,158))
