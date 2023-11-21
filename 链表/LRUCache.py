@@ -25,10 +25,10 @@ class LRUCache():
     def get(self, key: int):
         if key not in self.cache:
             return -1
-        else:
-            node = self.cache[key]
-            # 将访问的数据放到首位
-            self.moveToHead(node)
+        node = self.cache[key]
+        # 将访问的数据放到首位
+        self.moveToHead(node)
+        return node.value
 
     def put(self, key: int, value: int):
         if key in self.cache:
@@ -36,10 +36,10 @@ class LRUCache():
             node.value = value
             self.moveToHead(node)
         else:
-            node = DLinkedNode(key, value)
-            self.cache[key] = value
-            self.addHead(node)
-            self.size = self.size + 1
+            node = DLinkedNode(key, value)  # 新增一个node
+            self.cache[key] = value  # 输入cache内容
+            self.addHead(node)  # 头插node
+            self.size = self.size + 1  # 容量大小size - 1
             if self.size >= self.cap:
                 removed = self.removeTail()
                 self.cache.pop(removed.key)
