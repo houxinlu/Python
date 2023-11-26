@@ -16,7 +16,7 @@ def sub(arr_left, arr_right):
     i, j = 0, 0
     new_arr = []
     while i < len(arr_left) and j < len(arr_right):
-        if arr_left[i] < arr_right[j]:
+        if arr_left[i] <= arr_right[j]:
             new_arr.append(arr_left[i])
             i = i + 1
         else:

@@ -3,15 +3,11 @@
 
 def select_sort(array):
     for i in range(len(array)):
-        min_index = i
-        for j in range(i + 1, len(array)):  # *1
-            if array[min_index] > array[j]:
-                min_index = j  # *2
-
-        array[i], array[min_index] = array[min_index], array[i]
-        # min_num = array[min_index]
-        # array[min_index] = array[i]
-        # array[i] = min_num
+        minIndex = i
+        for j in range(i + 1, len(array)):
+            if array[j] < array[minIndex]:
+                minIndex = j
+        array[i], array[minIndex] = array[minIndex], array[i]
 
     return array
 
